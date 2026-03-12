@@ -1,0 +1,20 @@
+<launch>
+<node pkg="tf" type="static_transform_publisher" name="odom_to_world" 
+      args="0 0 0 0 0 0 odom world 100" />
+
+<node pkg="tf" type="static_transform_publisher" name="odom_to_map" 
+      args="0 0 0 0 0 0 odom map 100" />
+
+  <arg name="map_name" value="d455" />
+
+  <arg name="config_file" default="$(arg map_name).yaml" />
+
+  <include file="$(find epic_planner)/launch/algorithm.xml">
+    <arg name="config_file" value="$(arg config_file)" />
+  </include>
+  <node pkg="plan_manage" name="traj_server" type="traj_server" output="screen">
+    <remap from="/position_cmd" to="/planning/pos_cmd" />
+  </node>
+  <include file="$(find epic_planner)/launch/simulation_$(arg map_name).launch"/>
+
+</launch>

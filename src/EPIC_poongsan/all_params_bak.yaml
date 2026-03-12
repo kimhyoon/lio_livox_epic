@@ -1,0 +1,192 @@
+exploration_node:
+  ChiVec:
+  - 200000.0
+  - 15000.0
+  - 10000.0
+  - 100000.0
+  - 100000.0
+  DilateRadiusHard: 0.5
+  DilateRadiusSoft: 0.6
+  FrontierManager:
+    cell_size: 0.4
+    cluster_direction_radius: 0.15
+    cluster_max_size: 7.5
+    cluster_min_radius: 1.0
+    cluster_min_size: 2.0
+    cluster_minmum_point_num: 5
+    good_observation_direction_score: 0.8
+    good_observation_force_trust_length: 4.0
+    good_observation_trust_length: 12.0
+    noise_cell_range: 1
+    update_length: 15.0
+    view_cluster: false
+    view_frt: false
+  GravAcc: 9.8
+  HorizDrag: 0.7
+  IntegralIntervs: 32
+  MaxCorridorSize: 3.5
+  MaxThrust: 22.0
+  MaxTiltAngle: 0.5
+  MaxVelMag: 2.5
+  MinThrust: 15.0
+  ParasDrag: 0.01
+  RelCostTol: 1.0e-06
+  SmoothingEps: 0.015
+  SpeedEps: 0.0001
+  VehicleMass: 1.9
+  VertDrag: 0.8
+  ViewpointManager:
+    local_tsp_size: 20
+    sample_pillar_circle_sample_num: 8
+    sample_pillar_height_layer_num: 3
+    sample_pillar_max_height: 3.5
+    sample_pillar_max_radius: 4.0
+    sample_pillar_min_height: 1.0
+    sample_pillar_min_radius: 1.5
+    sample_pillar_radius_layer_num: 3
+  WeightSafeT: 400.0
+  WeightT: 2000.0
+  box_0:
+    down:
+    - -10.0
+    - -6.0
+    - -0.2
+    up:
+    - 182.0
+    - 150.2
+    - 3.8
+  box_num: 1
+  bubble_astar:
+    allocate_num: 10000
+    safe_distance: 0.6
+  bubble_topo:
+    bubble_min_radius: 0.61
+    cube_discrete_size: 0.25
+    init_region_size_x: 2.5
+    init_region_size_y: 2.5
+    init_region_size_z: 2.0
+    min_x: 0.6
+    min_y: 0.6
+    min_z: 0.3
+    odom_node_distance: 3.0
+  cloud_topic: /quad0_pcl_render_node/cloud
+  config_file: /home/root/catkin_ws/src/EPIC/src/global_planner/exploration_manager/config/target_board_garage.yaml
+  dead_area_num: 0
+  exploration:
+    tsp_dir: /home/root/catkin_ws/src/EPIC/src/global_planner/utils/lkh_tsp_solver/resource
+  frontier:
+    candidate_dphi: 0.26
+    candidate_znum: 3
+  global_planning:
+    w_firstnode: 0.2
+    w_vdir: 1.2
+    w_yawdir: 0.0
+  lidar_perception:
+    fov_down: -7.0
+    fov_up: 52.0
+    fov_viewpoint_down: -5.0
+    fov_viewpoint_up: 48.0
+    lidar_pitch: 40.0
+    max_ray_length: 18
+  maxBdrMag: 8000.0
+  max_traj_len: 8.0
+  max_update_region_num: 99999999
+  odometry_topic: /quad_0/lidar_slam/odom
+  parallel_astar:
+    insert_node_timeout: 0.004
+    update_connection_timeout: 0.004
+  tsp_dir: /home/root/catkin_ws/src/EPIC/src/global_planner/utils/lkh_tsp_solver/resource
+  view_graph: false
+  yaw_max_vel: 4.0
+  yaw_rho_vis: 10000.0
+  yaw_time_fwd: 3.0
+fast_planner_node:
+  config_file: /home/root/catkin_ws/src/EPIC/src/global_planner/exploration_manager/config/target_board_garage.yaml
+map_pub:
+  add_boundary: 0
+  downsample_res: 0.01
+  is_bridge: 0
+  map_offset_x: 0.0
+  map_offset_y: 0.0
+  map_offset_z: 0.0
+map_pub1:
+  downsample_res: 0.05
+  map_offset_x: 0.0
+  map_offset_y: 0.0
+  map_offset_z: 0.0
+quad0_cascadePID_node:
+  angle_stable_time: 0.1
+  controller_rate: 200
+  damping_ratio: 1.1
+  drone_id: 0
+  init_state_x: 5.0
+  init_state_y: 0.0
+  init_state_yaw: 0.0
+  init_state_z: 2.0
+  quadrotor_name: quad_0
+quad0_odom_visualization:
+  color:
+    a: 1.0
+    b: 1.0
+    g: 1.0
+    r: 0.0
+  covariance_scale: 100.0
+  drone_id: 0
+  init_x: 0.0
+  init_y: 0.0
+  init_z: 1.0
+  mesh_resource: package://odom_visualization/meshes/yunque.dae
+  quadrotor_name: quad0
+  robot_scale: 1.0
+quad0_pcl_render_node:
+  collision_range: 0.3
+  collisioncheck_enable: 0
+  curvature_limit: 100.0
+  downsample_res: 0.1
+  drone_id: 0
+  dyn_mode: 2
+  dyn_velocity: 1.0
+  dynobj_enable: 0
+  dynobject_num: 10
+  dynobject_size: 0.8
+  estimation_rate: 10.0
+  hash_cubesize: 5.0
+  is_360lidar: 1
+  lidar_pitch: 40.0
+  livox_linestep: 1.4
+  min_raylength: 1.0
+  output_pcd: 0
+  polar_resolution: 0.2
+  quadrotor_name: quad_0
+  sensing_horizon: 60.0
+  sensing_rate: 10.0
+  uav_num: 1
+  use_avia_pattern: 0
+  use_minicf_pattern: 1
+  use_os128_pattern: 0
+  use_uav_extra_model: 0
+  use_vlp32_pattern: 0
+  vertical_fov: 90.0
+  yaw_fov: 360.0
+quad0_quadrotor_dynamics:
+  init_state_x: 5.0
+  init_state_y: 0.0
+  init_state_z: 2.0
+  mass: 1.9
+  quadrotor_name: quad_0
+  simulation_rate: 200
+rosdistro: 'noetic
+
+  '
+roslaunch:
+  uris:
+    host_192_168_10_1__34689: http://192.168.10.1:34689/
+    host_192_168_10_2__40057: http://192.168.10.2:40057/
+rosversion: '1.17.0
+
+  '
+run_id: fffd1be8-c761-11ec-a060-421b3c2985e8
+traj_server:
+  config_file: /home/root/catkin_ws/src/EPIC/src/global_planner/exploration_manager/config/target_board_garage.yaml
+waypoint_generator:
+  waypoint_type: point

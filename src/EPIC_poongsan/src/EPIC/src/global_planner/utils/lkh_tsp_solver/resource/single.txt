@@ -1,0 +1,11 @@
+NAME : single.200524.tour
+COMMENT : Length = 200524
+COMMENT : Found by LKH [Keld Helsgaun] Mon Mar  9 14:05:43 2026
+TYPE : TOUR
+DIMENSION : 3
+TOUR_SECTION
+1
+2
+3
+-1
+EOF

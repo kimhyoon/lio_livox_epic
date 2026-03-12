@@ -1,0 +1,47 @@
+name: ROS Cross-Compile for NXP Edge
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-ros-workspace:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository into catkin_ws/src
+        uses: actions/checkout@v4
+        with:
+          path: catkin_ws/src
+
+      - name: Setup Build Environment
+        run: |
+          echo "Sourcing ROS and exporting variables to next steps"
+          source /opt/ros/noetic/setup.bash
+          echo "CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}" >> $GITHUB_ENV
+          echo "ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}" >> $GITHUB_ENV
+
+          echo "Unsetting LD_LIBRARY_PATH to avoid conflicts..."
+          unset LD_LIBRARY_PATH
+          
+          echo "Sourcing the NXP Yocto SDK environment script..."
+          source /opt/nxp-real-time-edge/2.5/environment-setup-armv8a-poky-linux
+          
+          echo "Compiler version: $($CC --version)"
+
+      - name: Build ROS Catkin Workspace
+        working-directory: catkin_ws
+        env:
+          PYTHON_EXECUTABLE: /usr/bin/python3
+        run: |
+          echo "Building the workspace from $(pwd)..."
+          catkin_make \
+            -DPYTHON_EXECUTABLE=/usr/bin/python3 \
+            -DCMAKE_TOOLCHAIN_FILE=$GITHUB_WORKSPACE/catkin_ws/src/toolchain.cmake
+
+      - name: Upload Executable Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ros-nodes-binary
+          path: catkin_ws/devel/lib/
+
