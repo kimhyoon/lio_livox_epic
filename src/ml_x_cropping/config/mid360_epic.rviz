@@ -9,6 +9,7 @@ Panels:
         - /global_planner1
         - /global_planner1/viewpoint_info1
         - /global_planner1/viewpoint_info1/MarkerArray1/Namespaces1
+        - /global_planner1/viewpoint_info1/PointCloud21
         - /debug_info1
         - /explore_env1
         - /topo_graph1/Namespaces1
@@ -40,13 +41,13 @@ Visualization Manager:
   Displays:
     - Alpha: 1
       Class: rviz/Axes
-      Enabled: false
-      Length: 5
+      Enabled: true
+      Length: 1
       Name: Axes
-      Radius: 1
+      Radius: 0.10000000149011612
       Reference Frame: <Fixed Frame>
       Show Trail: false
-      Value: false
+      Value: true
     - Alpha: 0.10000000149011612
       Cell Size: 1
       Class: rviz/Grid
@@ -80,7 +81,7 @@ Visualization Manager:
           Marker Topic: /planning/position_cmd_vis
           Name: position_cmd_all
           Namespaces:
-            "": true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -96,7 +97,7 @@ Visualization Manager:
           Marker Topic: /debug/cloud_crop/fov
           Name: EPIC_FOV
           Namespaces:
-            cloud_crop: true
+            {}
           Queue Size: 100
           Value: true
       Enabled: true
@@ -108,9 +109,7 @@ Visualization Manager:
           Marker Topic: /planning/travel_traj
           Name: history_traj
           Namespaces:
-            traj_exp: true
             traj_real: true
-            traj_rth: true
           Queue Size: 100
           Value: true
         - Class: rviz/MarkerArray
@@ -118,10 +117,7 @@ Visualization Manager:
           Marker Topic: /global_tour
           Name: global_tour
           Namespaces:
-            global_path: true
-            global_path_order: true
-            goal_path: true
-            goal_path_order: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Group
@@ -132,9 +128,7 @@ Visualization Manager:
               Name: MarkerArray
               Namespaces:
                 aabb: true
-                best_viewpoint: true
                 viewpoint_number: true
-                vp_frt_connecter: true
               Queue Size: 100
               Value: true
             - Alpha: 1
@@ -146,7 +140,7 @@ Visualization Manager:
               Axis: Z
               Channel Name: intensity
               Class: rviz/PointCloud2
-              Color: 0; 255; 0
+              Color: 255; 0; 0
               Color Transformer: FlatColor
               Decay Time: 0
               Enabled: true
@@ -176,7 +170,7 @@ Visualization Manager:
           Marker Topic: /visualizer/trajectory
           Name: Marker
           Namespaces:
-            trajectory: true
+            {}
           Queue Size: 105
           Value: true
         - Class: rviz/Marker
@@ -184,7 +178,7 @@ Visualization Manager:
           Marker Topic: /visualizer/edge
           Name: Marker
           Namespaces:
-            edge: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -192,7 +186,7 @@ Visualization Manager:
           Marker Topic: /visualizer/mesh
           Name: Marker
           Namespaces:
-            mesh: true
+            {}
           Queue Size: 100
           Value: true
       Enabled: true
@@ -414,22 +408,17 @@ Visualization Manager:
       Marker Topic: /viz_graph_topic
       Name: topo_graph
       Namespaces:
-        boundary: true
-        box id: true
-        odom_edge: true
-        skeleton_edge: true
-        topo_node: true
-        viewpoint_edge: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
-      Enabled: true
+      Enabled: false
       Marker Topic: /planning/expl_diag
       Name: expl_diag_hud
       Namespaces:
-        expl_diag: true
+        {}
       Queue Size: 10
-      Value: true
+      Value: false
     - Class: rviz/Group
       Displays:
         - Alpha: 1
@@ -497,7 +486,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 19.95394515991211
+      Distance: 15.121084213256836
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -505,17 +494,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 5.3147125244140625
-        Y: 0.7812017202377319
-        Z: -0.24192461371421814
+        X: -0.3962225615978241
+        Y: -1.927775502204895
+        Z: 0.7542744874954224
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.1547966003417969
+      Pitch: 0.4997973144054413
       Target Frame: <Fixed Frame>
-      Yaw: 3.1136484146118164
+      Yaw: 3.131838083267212
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 40.93450164794922
